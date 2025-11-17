@@ -8,7 +8,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://docusaurus.incoder.org",
+  url: "https://Enforcement-Handbook.github.io/EnforcementBook-Web",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -19,14 +19,6 @@ const config: Config = {
   projectName: "EnforcementBook-Web", // Usually your repo name.
 
   onBrokenLinks: "throw",
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
-  // i18n: {
-  //   defaultLocale: "zh-Hans",
-  //   locales: ["zh-Hans"],
-  // },
 
   markdown: {
     mermaid: true,

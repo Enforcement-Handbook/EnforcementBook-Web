@@ -1,4 +1,4 @@
-# Docs-Guides
+# EnforcementBook
 
 使用 [Docs-Guides](https://github.com/RootCluster/Docs-Guides) 模版 Book 风格，构建的文档手册静态页面
 
@@ -58,6 +58,15 @@ yarn upgrade-interactive --latest
 npm install -g npm-check
 # 使用命令检查更新, a 键选择所有, i 键反选选择
 npm-check -u
+```
+
+### 更新数据源
+
+数据源使用 subtree 集成
+
+```bash
+# 更新最新的数据源
+git subtree pull --prefix=docs --squash data mai
 ```
 
 ## 配置调整

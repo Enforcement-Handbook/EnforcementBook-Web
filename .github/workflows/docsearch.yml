@@ -1,0 +1,77 @@
+name: DocSearch Scraper
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  algolia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Validate docsearch.json exists
+        run: |
+          if [ ! -f "docsearch.json" ]; then
+            echo "docsearch.json not found!"
+            exit 1
+          fi
+
+      - name: Get the content of docsearch.json as config
+        id: algolia_config
+        run: echo "config=$(cat docsearch.json | jq -r tostring)" >> $GITHUB_OUTPUT
+
+      - name: Run algolia/docsearch-scraper image
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          CONFIG: ${{ steps.algolia_config.outputs.config }}
+        run: |
+          echo "Starting DocSearch scraper..."
+          # 捕获输出并检查退出码
+          docker run \
+            --env APPLICATION_ID=${ALGOLIA_APP_ID} \
+            --env API_KEY=${ALGOLIA_API_KEY} \
+            --env "CONFIG=${CONFIG}" \
+            algolia/docsearch-scraper > scraper_output.log 2>&1
+          echo "DocSearch scraper execution finished."
+          
+      - name: Validate scraping results
+        run: |
+          # 显示完整的抓取日志（便于调试）
+          echo "=== SCRAPER OUTPUT ==="
+          cat scraper_output.log
+          echo "=== END OUTPUT ==="
+          
+          # 检查是否有错误信息
+          if grep -q "ERROR\|Exception\|Traceback" scraper_output.log; then
+            echo "ERROR: Scraper encountered errors during execution"
+            exit 1
+          fi
+          
+          # 提取抓取的记录数
+          hits=$(grep "Nb hits:" scraper_output.log | awk '{print $3}')
+          if [ -z "$hits" ]; then
+            echo "ERROR: Could not determine number of hits"
+            exit 1
+          fi
+          
+          echo "Records scraped: $hits"
+          
+          # 验证记录数量是否合理
+          if [ "$hits" -lt 100 ]; then
+            echo "ERROR: Insufficient records scraped ($hits < 100). This indicates incomplete scraping."
+            exit 1
+          fi
+          echo "SUCCESS: Adequate records scraped ($hits >= 100)"
+          
+      - name: Archive scraper logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scraper-logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: scraper_output.log

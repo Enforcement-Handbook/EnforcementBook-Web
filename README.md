@@ -65,8 +65,11 @@ npm-check -u
 数据源使用 subtree 集成
 
 ```bash
+# 首次 clone 项目后，要添加源
+git remote add -f data https://github.com/Enforcement-Handbook/Laws-md.git
+git subtree add --prefix=docs --squash data/main
 # 更新最新的数据源
-git subtree pull --prefix=docs --squash data mai
+git subtree pull --prefix=docs --squash data main
 ```
 
 ## 配置调整

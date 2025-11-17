@@ -1,6 +1,6 @@
 # Docs-Guides
 
-使用 [Docusaurus](https://docusaurus.io/) 构建的文档手册静态页面示例项目，其他项目可使用该模板进行二次修改使用
+使用 [Docs-Guides](https://github.com/RootCluster/Docs-Guides) 模版 Book 风格，构建的文档手册静态页面
 
 ## 要求
 
@@ -10,7 +10,7 @@
 ## 项目结构
 
 ```text
-docs-guides
+EnforcementBook-Web
   ├── blog                          # 博客文章目录
   │   └── 2020-05-30-hola.md
   ├── docs                          # 文档目录
@@ -26,19 +26,6 @@ docs-guides
   │       └── index.js
   ├── static                        # 静态文件目录
   │   └── img
-  ├── i18n
-  │   └── zh-Hans                   # 简体中文翻译位置
-  │       ├── docusaurus-plugin-content-docs
-  │       │   │── current
-  │       │   │   ├── ...           # 要与 docs 目录结构相同的文件翻译
-  │       │   │   └── doc1.md
-  │       │   └── current.json      # 侧边栏
-  │       ├── docusaurus-theme-classic
-  │       │   └── navbar.json       # 导航栏
-  │       ├── docusaurus-plugin-content-blog
-  │       │   ├── ...               # 要与 blog 目录结构相同的文件翻译
-  │       │   └── doc1.md
-  │       └── code.json             # 定义了 React 代码中使用的所有文本标签
   ├── babel.config.js
   ├── docusaurus.config.ts          # 配置文件目录
   ├── package.json                  # 项目依赖管理
@@ -51,13 +38,9 @@ docs-guides
 
 ```bash
 # clone 项目
-git clone https://github.com/RootCluster/Docs-Guides.git
-# 
-cd docs-guides
+git clone https://github.com/Enforcement-Handbook/EnforcementBook-Web.git
 # 安装依赖
-yarn install
-
-# 按需调整配置（查看下一节）
+cd EnforcementBook-Web && yarn install
 
 # 本地预览, 默认英文
 yarn start
@@ -79,26 +62,4 @@ npm-check -u
 
 ## 配置调整
 
-```ts
-// 项目子路径
-baseUrl: ''
-```
-
-## 路线图
-
-- [x] 简单示例
-- [x] 插件集成
-  - [x] 图片预览
-  - [x] 本地搜索
-  - [x] 图表支持
-- [ ] 打包脚本增强
-- [ ] 分版
-- [ ] 离线 PDF 生成
-
-## 其他
-
-- 搜索功能
-  - 暂时先使用 [docusaurus-search-local](https://github.com/easyops-cn/docusaurus-search-local)
-  - 等待 [issues-205](https://github.com/cmfcmf/docusaurus-search-local/issues/205)
-- 离线PDF
-  - [docusaurus-prince-pdf](https://github.com/signcl/docusaurus-prince-pdf)
+更多配置可参考 [Docs-Guides](https://docusaurus.incoder.org) 模版项目，或官方 [Docusaurus](https://docusaurus.io) 文档

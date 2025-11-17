@@ -3,8 +3,8 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "Book",
-  tagline: "Book Demo",
+  title: "执法手册",
+  tagline: "中国应急管理行业执法人员的实用指南",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -15,22 +15,24 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "RootCluster", // Usually your GitHub org/user name.
-  projectName: "Docs-Guides", // Usually your repo name.
+  organizationName: "Enforcement-Handbook", // Usually your GitHub org/user name.
+  projectName: "EnforcementBook-Web", // Usually your repo name.
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "zh-Hans"],
-  },
+  // i18n: {
+  //   defaultLocale: "zh-Hans",
+  //   locales: ["zh-Hans"],
+  // },
 
   markdown: {
     mermaid: true,
+    hooks:{
+      onBrokenMarkdownLinks: "warn",
+    }
   },
 
   themes: [
@@ -64,13 +66,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // giscus 评论功能
-    giscus: {
-      repo: "RootCluster/Docs-Guides",
-      repoId: "R_kgDOMD4R8A",
-      category: "General",
-      categoryId: "DIC_kwDOMD4R8M4CgGSs",
-    },
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 5,
@@ -89,9 +84,9 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "Book",
+      title: "执法手册",
       logo: {
-        alt: "My Site Logo",
+        alt: "中国应急管理",
         src: "img/logo.svg",
         srcDark: "img/logo_dark.svg",
         href: "/",
@@ -103,7 +98,7 @@ const config: Config = {
         //   position: "left",
         //   label: "Tutorial",
         // },
-        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/blog", label: "更新记录", position: "left" },
         // {
         //   type: 'search',
         //   position: 'right',
@@ -114,16 +109,16 @@ const config: Config = {
         //   dropdownActiveClassDisabled: true,
         // },
         // language change
-        {
-          type: "localeDropdown",
-          position: "right",
-        },
-        {
-          href: "https://github.com/RootCluster/Docs-Guides",
-          position: "right",
-          className: "header-github-link",
-          "aria-label": "GitHub repository",
-        },
+        // {
+        //   type: "localeDropdown",
+        //   position: "right",
+        // },
+        // {
+        //   href: "https://github.com/RootCluster/Docs-Guides",
+        //   position: "right",
+        //   className: "header-github-link",
+        //   "aria-label": "GitHub repository",
+        // },
       ],
     },
     footer: {
@@ -139,7 +134,7 @@ const config: Config = {
       //     ],
       //   },
       // ],
-      copyright: `Copyright © ${new Date().getFullYear()} Docs Guides, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} 新疆维吾尔自治区应急管理厅, Inc. Built with 执法手册.`,
     },
 
     // announcementBar: {

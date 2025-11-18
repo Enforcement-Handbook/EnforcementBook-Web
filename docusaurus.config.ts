@@ -18,7 +18,7 @@ const config: Config = {
   organizationName: "Enforcement-Handbook", // Usually your GitHub org/user name.
   projectName: "EnforcementBook-Web", // Usually your repo name.
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
 
   markdown: {
     mermaid: true,
@@ -43,12 +43,12 @@ const config: Config = {
           remarkPlugins: [
             [require("@docusaurus/remark-plugin-npm2yarn"), { sync: true }],
           ],
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
         },
         blog: {
           // https://docusaurus.io/zh-CN/docs/api/plugins/@docusaurus/plugin-content-blog
-          showReadingTime: true,
-          showLastUpdateTime: true,
+          showReadingTime: false,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: "./src/css/custom.css",

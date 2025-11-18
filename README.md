@@ -62,16 +62,22 @@ npm-check -u
 
 ### 更新数据源
 
-数据源使用 subtree 集成
+数据源使用 subtree 集成，更新时, 先备份 docs 路径下的 `README.md` 文件，原因是 subtree 拉去的仓库有 README.md 会覆盖路径下的文件
 
 ```bash
 # 首次 clone 项目后，要添加源
-git remote add -f data https://github.com/Enforcement-Handbook/Laws-md.git
-git subtree add --prefix=docs --squash data/main
+git subtree add --prefix=docs --squash https://github.com/Enforcement-Handbook/Laws.git main
 # 更新最新的数据源
-git subtree pull --prefix=docs --squash data main
+git subtree pull --prefix=docs --squash https://github.com/Enforcement-Handbook/Laws.git main
 ```
 
 ## 配置调整
 
 更多配置可参考 [Docs-Guides](https://docusaurus.incoder.org) 模版项目，或官方 [Docusaurus](https://docusaurus.io) 文档
+
+## 提交
+
+```bash
+# 提交前，本地编译没有明显错误时方可提交
+yarn build
+```

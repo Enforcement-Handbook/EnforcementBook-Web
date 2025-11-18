@@ -1,4 +1,4 @@
-# 新疆应急法规汇编
+
 
 ![](https://raw.githubusercontent.com/zhufacai/zhifashouce/refs/heads/main/content/zhifa.png)
 

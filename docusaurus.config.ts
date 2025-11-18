@@ -3,8 +3,8 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "执法手册",
-  tagline: "中国应急管理行业执法人员的实用指南",
+  title: "新疆应急法规汇编",
+  tagline: "应急管理实用指南",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -76,9 +76,9 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "执法手册",
+      title: "新疆应急法规汇编",
       logo: {
-        alt: "中国应急管理",
+        alt: "新疆应急管理法规汇编",
         src: "img/logo.svg",
         srcDark: "img/logo_dark.svg",
         href: "/",
@@ -126,7 +126,7 @@ const config: Config = {
       //     ],
       //   },
       // ],
-      copyright: `Copyright © ${new Date().getFullYear()} 新疆维吾尔自治区应急管理厅, Inc. Built with 执法手册.`,
+      copyright: `Copyright © ${new Date().getFullYear()} 新疆维吾尔自治区应急管理厅, Inc. Built with 新疆应急法规汇编.`,
     },
     // Algolia 搜索配置
     algolia: {

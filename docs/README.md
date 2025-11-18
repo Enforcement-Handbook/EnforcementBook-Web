@@ -1,1 +1,11 @@
-# Laws-md
+# 新疆应急法规汇编
+
+![](https://raw.githubusercontent.com/zhufacai/zhifashouce/refs/heads/main/content/zhifa.png)
+
+------
+
+
+
+- 更新时间: 2025年11月14日 
+
+- 法律内容来源于国家法律法规数据库，该项目仅做整合和搜索等功能，如果您在使用过程中发现部分法条有误，或不完整，请联系开发者进行修改。
